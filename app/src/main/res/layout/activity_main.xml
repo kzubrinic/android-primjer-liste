@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="hr.kruno.pokemoni1.MainActivity">
+
+    <Button
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:text="Jednostavna lista"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:onClick="jednostavna" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista s nestandardnim izgledom retka"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:onClick="nestandardni" />
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lista s vlastitim adapterom"
+            android:id="@+id/button3"
+            android:layout_gravity="center_horizontal"
+            android:onClick="vlastitiAdapter2"
+            android:nestedScrollingEnabled="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista s vlastitim adapterom i slikama"
+        android:id="@+id/button4"
+        android:layout_gravity="center_horizontal"
+        android:onClick="vlastitiAdapter"
+        android:nestedScrollingEnabled="true" />
+</LinearLayout>
