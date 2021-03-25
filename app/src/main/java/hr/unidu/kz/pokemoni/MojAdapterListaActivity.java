@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // aktivnost sadrži samo listu pa je najjednostavnije koristiti oblik klase koji
 // nasljeđuje klasu ListActivity
 public class MojAdapterListaActivity extends ListActivity {
-    private Pokemon[] pokemoniObj = new Pokemon[25];
+    private List<Pokemon> pokemoniObj = new ArrayList<>(25);
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -35,7 +38,7 @@ public class MojAdapterListaActivity extends ListActivity {
     private void napuniPolje(String[] punj){
         String[] vrste = {"Psihički", "Mračni", "Psihički", "Otrovni", "Arcanine", "Vatreni", "Zmaj", "Travnati", "Buba/otrovni", "Travnati", "Travnati/otrovni", "Vodeni", "Vatreni", "Travnati", "Travnati/otrovni", "Normalni", "Leteći", "Travnati", "Travnati/mračni", "Vatreni/zemljani", "Buba", "Travnati/psihički", "Vatreni/leteći", "Vatreni", "Vatreni"};
         for (int i = 0; i< 25; ++i){
-            pokemoniObj[i] = new Pokemon(punj[i], vrste[i]);
+            pokemoniObj.add(new Pokemon(punj[i], vrste[i]));
         }
     }
 }

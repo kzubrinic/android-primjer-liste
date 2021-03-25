@@ -9,13 +9,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 // specifičan vlastiti adapter
 public class MojAdapter extends ArrayAdapter<Pokemon> {
     private final Context context;
-    private final Pokemon[] pokemoni;
+    private final List<Pokemon> pokemoni;
     // adapter s listom povezuje podatke u obliku polja objekata tipa Pokemon
     // izgled retka liste je opisan u layout datoteci moj_redak_liste_2.xml
-    public MojAdapter(Context context, Pokemon[] pokemoni) {
+    public MojAdapter(Context context, List<Pokemon> pokemoni) {
         super(context, R.layout.moj_redak_liste_2, pokemoni);
         this.context = context;
         this.pokemoni = pokemoni;
@@ -31,13 +33,13 @@ public class MojAdapter extends ArrayAdapter<Pokemon> {
         TextView vrsta = (TextView) rowView.findViewById(R.id.vrsta);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         // polje naziva se puni imenom Pokemona pročitanom iz objekta tipa Pokemon odgovarajućeg retka
-        naziv.setText(pokemoni[position].getIme());
+        naziv.setText(pokemoni.get(position).getIme());
         // polje vrste se puni tekstom "Vrsta: " i vrstom Pokemona pročitanom iz objekta tipa
         // Pokemon odgovarajućeg retka
-        vrsta.setText("Vrsta: " + pokemoni[position].getVrsta());
+        vrsta.setText("Vrsta: " + pokemoni.get(position).getVrsta());
         // Slika se dohvaća na temelju naziva slike dohvaćene iz objekta tipa
         // Pokemon odgovarajućeg retka
-        String uri = "@drawable/" + pokemoni[position].getSlika();
+        String uri = "@drawable/" + pokemoni.get(position).getSlika();
         int imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
         Drawable res = context.getResources().getDrawable(imageResource);
         imageView.setImageDrawable(res);
@@ -48,6 +50,6 @@ public class MojAdapter extends ArrayAdapter<Pokemon> {
     // ova metoda se odrađuje kada korisnik klikne na redak liste - vraća objekt tipa Pokemon
     // iz retka liste na koji je korisnik kliknuo
     public Pokemon getItem(int position) {
-        return pokemoni[position];
+        return pokemoni.get(position);
     }
 }
